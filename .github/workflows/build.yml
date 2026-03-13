@@ -26,3 +26,10 @@ jobs:
 
       - name: Build solution (x86)
         run: msbuild dvmconsole.sln /p:Configuration=Release /p:Platform=x86
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: dvmconsole-build
+          path: |
+            **/Release/*.exe
+            **/Release/*.dll
